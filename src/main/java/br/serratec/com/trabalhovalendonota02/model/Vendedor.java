@@ -15,12 +15,12 @@ public class Vendedor {
     private Long id;
 
     private String nome;
-    private String email;git
+    private String email;
     private Double salario;
 
-    @OneToMany
-    JoinColumn(mappedBy ="id_vAutonomo");
-
-    private VendedorAutonomo vendedorAutonomo;
+//    @OneToMany
+//    JoinColumn(mappedBy ="id_vAutonomo");
+//
+//    private VendedorAutonomo vendedorAutonomo;
 
 }
