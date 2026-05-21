@@ -1,7 +1,5 @@
 package br.serratec.com.trabalhovalendonota02.controller;
 
-import java.util.Optional;
-
 import br.serratec.com.trabalhovalendonota02.model.Vendedor;
 import br.serratec.com.trabalhovalendonota02.service.VendedorServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -25,17 +24,13 @@ public class VendedorController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Vendedor inserir(@RequestBody Vendedor vendedores) {
+    public Vendedor inserir(@Valid @RequestBody Vendedor vendedores) {
         return service.inserir(vendedores);
     }
 
 
     @GetMapping("/{id}")
     public ResponseEntity<Vendedor> buscar(@PathVariable Long id) {
-        Optional<Vendedor> vendedores = service.buscar(id);
-        if (vendedores.isPresent()) {
-            return ResponseEntity.ok(vendedores.get());
-        }
-        return ResponseEntity.notFound().build();
-    }
+    return ResponseEntity.ok(service.buscar(id));
+}
 }
