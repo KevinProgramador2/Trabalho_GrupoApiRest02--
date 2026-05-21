@@ -1,14 +1,18 @@
 package br.serratec.com.trabalhovalendonota02.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.HashSet;
+import java.util.List;
 
 @Getter
 @Setter
 @Entity
-public class Vendedor {
+@Inheritance(strategy =  InheritanceType.JOINED)// cria tabelas separadas para as especializações.;
+public  class Vendedor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,9 +22,8 @@ public class Vendedor {
     private String email;
     private Double salario;
 
-//    @OneToMany
-//    JoinColumn(mappedBy ="id_vAutonomo");
-//
-//    private VendedorAutonomo vendedorAutonomo;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "id_vendedor", fetch = FetchType.EAGER)
+    private List<LancamentoVendas>  lancamento ;
 
 }
