@@ -1,26 +1,23 @@
 package br.serratec.com.trabalhovalendonota02.model;
 
-
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
-import lombok.Getter;
-import lombok.Setter;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
-@Getter
-@Setter
+public class VendedorProfissional extends Vendedor {
+    private String cnpj;
 
-public class VendedorProfissional extends Vendedor  {
+    public VendedorProfissional() {
+    }
 
-    private String cpnj;
+    public VendedorProfissional(String cnpj) {
+        this.cnpj = cnpj;
+    }
 
-    @ManyToOne
-    @JoinColumn(name= "id_vendedor")
-    private Vendedor vendedor;
+    public String getCnpj() {
+        return cnpj;
+    }
 
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
 }

@@ -9,20 +9,14 @@ import java.util.Optional;
 
 @Service
 public class VendedorServices {
+    @Autowired
+    private VendedorRepository repository;
 
-  
-        @Autowired
-        private VendedorRepository repository;
+    public Vendedor inserir(Vendedor vendedor){
+        return repository.save(vendedor);
+    }
 
-
-        public Vendedor inserir(Vendedor vendedor){
-            return repository.save(vendedor);
-        }
-
-
-        public Optional<Vendedor> buscar(Long id){
-            return repository.findById(id);
-        
-
-        }
+    public Optional<Vendedor> buscar(Long id){
+        return repository.findById(id);
+    }
 }
