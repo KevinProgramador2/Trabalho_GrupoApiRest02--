@@ -2062,3 +2062,138 @@ create global temporary table HTE_lancamento_vendas(rn_ integer not null, id big
 2026-05-20 23:31:47.839282-03:00 jdbc[398]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "HTE_LANCAMENTO_VENDAS" already exists; SQL statement:
 create global temporary table HTE_lancamento_vendas(rn_ integer not null, id bigint, valor float(53), vendedor_id bigint, data varchar(255), primary key (rn_)) transactional [42101-240]
+2026-05-21 08:00:15.859469-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "ID" not found; SQL statement:
+INSERT INTO vendedor (dtype, id, email, nome, salario, comissao, cnpj) SELECT dtype, id, email, nome, salario, comissao, cnpj FROM CSVREAD('CLASSPATH:/csv/vendedores.csv') [42122-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.query.Select.lambda$prepareExpressions$2(Select.java:1209)
+	at java.base/java.util.ArrayList.replaceAllRange(ArrayList.java:1712)
+	at java.base/java.util.ArrayList.replaceAll(ArrayList.java:1702)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1209)
+	at org.h2.command.query.Query.prepare(Query.java:235)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:309)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:40)
+	at org.h2.command.Parser.prepareCommand(Parser.java:492)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate$1ExecuteStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:412)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:461)
+	at br.serratec.com.trabalhovalendonota02.configuration.PopularTabelas.run(PopularTabelas.java:24)
+	at org.springframework.boot.SpringApplication.lambda$callRunner$1(SpringApplication.java:792)
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82)
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60)
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:800)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:791)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$0(SpringApplication.java:776)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:776)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:328)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at br.serratec.com.trabalhovalendonota02.TrabalhoValendoNota02Application.main(TrabalhoValendoNota02Application.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52)
+2026-05-21 08:02:20.826313-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "ID" not found; SQL statement:
+INSERT INTO VENDEDOR (DTYPE, ID, EMAIL, NOME, SALARIO, COMISSAO, CNPJ) SELECT DTYPE, ID, EMAIL, NOME, SALARIO, COMISSAO, CNPJ FROM CSVREAD('CLASSPATH:/csv/vendedores.csv') [42122-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.query.Select.lambda$prepareExpressions$2(Select.java:1209)
+	at java.base/java.util.ArrayList.replaceAllRange(ArrayList.java:1712)
+	at java.base/java.util.ArrayList.replaceAll(ArrayList.java:1702)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1209)
+	at org.h2.command.query.Query.prepare(Query.java:235)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:309)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:40)
+	at org.h2.command.Parser.prepareCommand(Parser.java:492)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate$1ExecuteStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:412)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:461)
+	at br.serratec.com.trabalhovalendonota02.configuration.PopularTabelas.run(PopularTabelas.java:26)
+	at org.springframework.boot.SpringApplication.lambda$callRunner$1(SpringApplication.java:792)
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82)
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60)
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:800)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:791)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$0(SpringApplication.java:776)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:776)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:328)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at br.serratec.com.trabalhovalendonota02.TrabalhoValendoNota02Application.main(TrabalhoValendoNota02Application.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52)
+2026-05-21 08:07:19.557989-03:00 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "HTE_LANCAMENTO_VENDAS" already exists; SQL statement:
+create global temporary table HTE_lancamento_vendas(rn_ integer not null, id bigint, valor float(53), vendedor_id bigint, data varchar(255), primary key (rn_)) transactional [42101-240]
+2026-05-21 08:07:51.875908-03:00 jdbc[27]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "HTE_LANCAMENTO_VENDAS" already exists; SQL statement:
+create global temporary table HTE_lancamento_vendas(rn_ integer not null, id bigint, valor float(53), vendedor_id bigint, data varchar(255), primary key (rn_)) transactional [42101-240]
+2026-05-21 08:08:30.705626-03:00 jdbc[38]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "HTE_LANCAMENTO_VENDAS" already exists; SQL statement:
+create global temporary table HTE_lancamento_vendas(rn_ integer not null, id bigint, valor float(53), vendedor_id bigint, data varchar(255), primary key (rn_)) transactional [42101-240]
+2026-05-21 08:09:53.338172-03:00 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "HTE_LANCAMENTO_VENDAS" already exists; SQL statement:
+create global temporary table HTE_lancamento_vendas(rn_ integer not null, id bigint, valor float(53), vendedor_id bigint, data varchar(255), primary key (rn_)) transactional [42101-240]
+2026-05-21 08:10:45.420831-03:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "HTE_LANCAMENTO_VENDAS" already exists; SQL statement:
+create global temporary table HTE_lancamento_vendas(rn_ integer not null, id bigint, valor float(53), vendedor_id bigint, data varchar(255), primary key (rn_)) transactional [42101-240]
+2026-05-21 08:10:47.893895-03:00 jdbc[24]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "HTE_LANCAMENTO_VENDAS" already exists; SQL statement:
+create global temporary table HTE_lancamento_vendas(rn_ integer not null, id bigint, valor float(53), vendedor_id bigint, data varchar(255), primary key (rn_)) transactional [42101-240]
+2026-05-21 08:10:48.245813-03:00 jdbc[24]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO vendedor (dtype, nome, email, salario, comissao, cnpj) SELECT dtype, nome, email, salario, NULLIF(comissao[*]), 'NULL'), NULLIF(TRIM(cnpj), 'NULL') FROM CSVREAD('/Users/lucaslopescardoso/Desktop/SERRATEC/Trabalho_GrupoApiRest02--/target/classes/csv/vendedores.csv')"; expected "(, ., [, ., ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,"; SQL statement:
+INSERT INTO vendedor (dtype, nome, email, salario, comissao, cnpj) SELECT dtype, nome, email, salario, NULLIF(comissao), 'NULL'), NULLIF(TRIM(cnpj), 'NULL') FROM CSVREAD('/Users/lucaslopescardoso/Desktop/SERRATEC/Trabalho_GrupoApiRest02--/target/classes/csv/vendedores.csv') [42001-240]
+2026-05-21 08:10:50.406636-03:00 jdbc[34]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "HTE_LANCAMENTO_VENDAS" already exists; SQL statement:
+create global temporary table HTE_lancamento_vendas(rn_ integer not null, id bigint, valor float(53), vendedor_id bigint, data varchar(255), primary key (rn_)) transactional [42101-240]
+2026-05-21 08:33:52.125777-03:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LANCAMENTO_VENDA" not found; SQL statement:
+select * from lancamento_venda [42102-240]

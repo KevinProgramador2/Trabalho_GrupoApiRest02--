@@ -10,14 +10,14 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class LancamentoVendas {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String data;
     private Double valor;
-    
+
     @ManyToOne
-    @JoinColumn(name= "id_vendedor")
+    @JoinColumn(name = "id_vendedor")
     private Vendedor vendedor;
 
     public LancamentoVendas() {
