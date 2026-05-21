@@ -7,6 +7,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Vendedor {
@@ -15,8 +20,15 @@ public class Vendedor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "O nome não pode ser vazio ou nulo")
     private String nome;
+
+    @Email(message = "Email inválido")
+    @NotBlank(message = "O email não pode ser vazio")
     private String email;
+
+    @NotNull(message = "O salário não pode ser nulo")
+    @DecimalMin(value = "1621.00", message = "O salário não pode ser inferior ao salário mínimo")
     private Double salario;
 
     @OneToMany(mappedBy = "vendedor")
