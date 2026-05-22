@@ -16,9 +16,6 @@ public class VendedorAutonomo  extends Vendedor{
 
     private Double comissao;
 
-    public <LocalDate> VendedorAutonomo(Vendedor vendedor, VendedorAutonomo vendedorAutonomo, LocalDate dataCriacao, Boolean ativo) {
-    }
-
     @ManyToOne
     @JoinColumn(name= "id_vendedor")
     private Vendedor vendedor;
