@@ -30,7 +30,7 @@ public class Vendedor {
     @NotNull(message = "O salário não pode ser nulo")
     @DecimalMin(value = "1621.00", message = "O salário não pode ser inferior ao salário mínimo")
     private Double salario;
-
+    @com.fasterxml.jackson.annotation.JsonIgnore
     @OneToMany(mappedBy = "vendedor")
     private List<LancamentoVendas> lancamentoVendas;
 
