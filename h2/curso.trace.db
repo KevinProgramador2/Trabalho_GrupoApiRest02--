@@ -2197,3 +2197,6 @@ create global temporary table HTE_lancamento_vendas(rn_ integer not null, id big
 2026-05-21 08:33:52.125777-03:00 jdbc[14]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LANCAMENTO_VENDA" not found; SQL statement:
 select * from lancamento_venda [42102-240]
+2026-05-21 22:33:13.714701-03:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LANCAMENTOS_VENDAS" not found; SQL statement:
+select * from lancamentos_vendas [42102-240]
