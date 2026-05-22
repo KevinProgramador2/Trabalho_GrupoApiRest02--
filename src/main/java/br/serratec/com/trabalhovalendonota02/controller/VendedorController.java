@@ -31,6 +31,6 @@ public class VendedorController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Vendedor> buscar(@PathVariable Long id) {
-        return ResponseEntity.ok(service.buscar(id));
-    }
+    return ResponseEntity.ok(service.buscar(id));
+}
 }
