@@ -11,8 +11,8 @@ public class VendedorServices {
     @Autowired
     private VendedorRepository repository;
 
-    public Vendedor inserir(Vendedor vendedor){
-        return repository.save(vendedor);
+        public Vendedor inserir(Vendedor vendedor){
+            return repository.save(vendedor);
     }
 
     public Vendedor buscar(Long id){
